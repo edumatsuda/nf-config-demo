@@ -54,7 +54,7 @@ st.table(filtered_df[['id_servico_prestado_nota', 'quantidade_empresas','total_e
 st.header('Configuração')
 st.write('Selecione Código e município para ver a configuração')
 
-service_options = sorted(filtered_df['id_servico_prestado_nota'].unique().tolist())
+service_options = sorted(filtered_df['id_servico_prestado_nota'].dropna().unique().tolist())
 selected_service = st.selectbox('Selecione o Código de serviço:', service_options)
 
 filtered_config = df_config[(df_config['cnae_nota'] == selected_cnae) &
